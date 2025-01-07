@@ -291,7 +291,7 @@ if __name__ == '__main__':
                     pyautogui.press('right')
                     x_pos += 1
                 if detect_start(frame, results)[1] == "started":
-                    pyautogui.click(x=340, y=260, button='left')
+                    pyautogui.click(x=700, y=260, button='left')
                     pyautogui.press('space')
                     if paused:
                         paused = False
@@ -309,7 +309,7 @@ if __name__ == '__main__':
                         left_y = int(results.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_SHOULDER].y * frame_height)
                         right_y = int(results.pose_landmarks.landmark[mp_pose.PoseLandmark.LEFT_SHOULDER].y * frame_height)
                         MID_Y = abs(left_y + right_y) // 2
-                        pyautogui.click(x=340, y=260, button='left')
+                        pyautogui.click(x=700, y=260, button='left')
                         pyautogui.press('space')
                         paused = False
             else:
@@ -322,6 +322,7 @@ if __name__ == '__main__':
             # pausing the game
             elif detect_end_pause(frame, results)[1] == "pause":
                 if not paused:
+                    # pyautogui.click(x=1360, y=720, button='left')
                     pyautogui.press('esc')
                     paused = True
             else:
